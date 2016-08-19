@@ -13,6 +13,10 @@
 		372B6BD81D662FD200E9945B /* ToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 372B6BD61D662FD200E9945B /* ToDo.xcdatamodeld */; };
 		372B6BDA1D662FD200E9945B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 372B6BD91D662FD200E9945B /* Assets.xcassets */; };
 		372B6BDD1D662FD200E9945B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 372B6BDB1D662FD200E9945B /* LaunchScreen.storyboard */; };
+		3751EB6D1D6682630054D56E /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751EB6C1D6682630054D56E /* TaskTableViewCell.swift */; };
+		3751EB6F1D6682AD0054D56E /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751EB6E1D6682AD0054D56E /* TasksTableViewController.swift */; };
+		3751EB711D6683F90054D56E /* TaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751EB701D6683F90054D56E /* TaskManager.swift */; };
+		3751EB751D668A400054D56E /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3751EB741D668A400054D56E /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		372B6BD91D662FD200E9945B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		372B6BDC1D662FD200E9945B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		372B6BDE1D662FD200E9945B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3751EB6C1D6682630054D56E /* TaskTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
+		3751EB6E1D6682AD0054D56E /* TasksTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
+		3751EB701D6683F90054D56E /* TaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskManager.swift; sourceTree = "<group>"; };
+		3751EB741D668A400054D56E /* NewTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NewTaskViewController.swift; path = ../NewTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +64,15 @@
 		372B6BCE1D662FD200E9945B /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				3751EB741D668A400054D56E /* NewTaskViewController.swift */,
 				372B6BCF1D662FD200E9945B /* AppDelegate.swift */,
 				372B6BD11D662FD200E9945B /* ViewController.swift */,
 				372B6BD31D662FD200E9945B /* Main.storyboard */,
 				372B6BD91D662FD200E9945B /* Assets.xcassets */,
 				372B6BDB1D662FD200E9945B /* LaunchScreen.storyboard */,
+				3751EB6C1D6682630054D56E /* TaskTableViewCell.swift */,
+				3751EB6E1D6682AD0054D56E /* TasksTableViewController.swift */,
+				3751EB701D6683F90054D56E /* TaskManager.swift */,
 				372B6BDE1D662FD200E9945B /* Info.plist */,
 				372B6BD61D662FD200E9945B /* ToDo.xcdatamodeld */,
 			);
@@ -138,6 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3751EB711D6683F90054D56E /* TaskManager.swift in Sources */,
+				3751EB751D668A400054D56E /* NewTaskViewController.swift in Sources */,
+				3751EB6D1D6682630054D56E /* TaskTableViewCell.swift in Sources */,
+				3751EB6F1D6682AD0054D56E /* TasksTableViewController.swift in Sources */,
 				372B6BD21D662FD200E9945B /* ViewController.swift in Sources */,
 				372B6BD81D662FD200E9945B /* ToDo.xcdatamodeld in Sources */,
 				372B6BD01D662FD200E9945B /* AppDelegate.swift in Sources */,
@@ -290,6 +306,7 @@
 				372B6BE31D662FD200E9945B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
