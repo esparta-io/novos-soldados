@@ -82,6 +82,7 @@
                                                     <connections>
                                                         <action selector="statusTask:" destination="udg-8J-hj4" eventType="valueChanged" id="7lR-Dq-sGH"/>
                                                         <action selector="taskStatus:" destination="udg-8J-hj4" eventType="valueChanged" id="5M1-U0-jkp"/>
+                                                        <action selector="toggleTaskStatus:" destination="udg-8J-hj4" eventType="valueChanged" id="5lS-EE-JrM"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>

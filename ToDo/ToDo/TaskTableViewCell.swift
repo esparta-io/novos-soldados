@@ -14,8 +14,12 @@ class TaskTableViewCell: UITableViewCell {
     
     @IBOutlet weak var taskStatusButton: UISwitch!
     
-    @IBAction func taskStatus(sender: UISwitch) {
-        
+    @IBAction func toggleTaskStatus(sender: AnyObject) {
+        if taskStatusButton.on == false{
+            taskStatusButton.setOn(true, animated: true)
+        }else{
+            taskStatusButton.setOn(false, animated: true)
+        }
     }
     
    
