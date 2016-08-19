@@ -45,6 +45,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		371B2ED21D6785FF00366F42 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3751EB701D6683F90054D56E /* TaskManager.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		371B2ED31D67861100366F42 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3751EB741D668A400054D56E /* NewTaskViewController.swift */,
+				372B6BD11D662FD200E9945B /* ViewController.swift */,
+				3751EB6C1D6682630054D56E /* TaskTableViewCell.swift */,
+				3751EB6E1D6682AD0054D56E /* TasksTableViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		371B2ED41D67862400366F42 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				372B6BD31D662FD200E9945B /* Main.storyboard */,
+				372B6BDB1D662FD200E9945B /* LaunchScreen.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		372B6BC31D662FD200E9945B = {
 			isa = PBXGroup;
 			children = (
@@ -64,15 +92,11 @@
 		372B6BCE1D662FD200E9945B /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
-				3751EB741D668A400054D56E /* NewTaskViewController.swift */,
+				371B2ED41D67862400366F42 /* View */,
+				371B2ED31D67861100366F42 /* Controller */,
+				371B2ED21D6785FF00366F42 /* Model */,
 				372B6BCF1D662FD200E9945B /* AppDelegate.swift */,
-				372B6BD11D662FD200E9945B /* ViewController.swift */,
-				372B6BD31D662FD200E9945B /* Main.storyboard */,
 				372B6BD91D662FD200E9945B /* Assets.xcassets */,
-				372B6BDB1D662FD200E9945B /* LaunchScreen.storyboard */,
-				3751EB6C1D6682630054D56E /* TaskTableViewCell.swift */,
-				3751EB6E1D6682AD0054D56E /* TasksTableViewController.swift */,
-				3751EB701D6683F90054D56E /* TaskManager.swift */,
 				372B6BDE1D662FD200E9945B /* Info.plist */,
 				372B6BD61D662FD200E9945B /* ToDo.xcdatamodeld */,
 			);

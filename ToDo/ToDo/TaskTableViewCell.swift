@@ -12,10 +12,13 @@ class TaskTableViewCell: UITableViewCell {
 
     @IBOutlet weak var taskText: UILabel!    
     
+    @IBOutlet weak var taskStatusButton: UISwitch!
+    
     @IBAction func taskStatus(sender: UISwitch) {
         
     }
     
+   
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

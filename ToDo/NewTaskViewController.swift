@@ -16,12 +16,13 @@ class NewTaskViewController: UIViewController {
         taskManager.newTask(newTaskText.text!, taskCompleted: false)
         self.view.endEditing(true)
         newTaskText.text = ""
+        NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
         self.navigationController?.popViewControllerAnimated(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
 
