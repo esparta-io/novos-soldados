@@ -49,4 +49,8 @@ class Singleton{
         }
     }
     
+    func removeTaskOnListToDo(index: Int){
+        listTodo.removeAtIndex(index)
+    }
+    
 }

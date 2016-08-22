@@ -12,10 +12,13 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet weak var tableView: UITableView!
     
+
     override func viewDidLoad() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.backgroundColor = Singleton.sharedInstance.getBackGroundCollor()
+        
+        
         super.viewDidLoad()
     }
 
@@ -36,12 +39,52 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
             let date = Singleton.sharedInstance.listTodo[indexPath.row].dateTime
             cell.setCell(textTask, date: date)
         }
+        cell.backgroundColor = Singleton.sharedInstance.getBackGroundCollorButton()
+
+        cell.button.tag = indexPath.row
+        cell.button.addTarget(self, action: #selector(ToDoViewController.buttonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         return cell
     }
     
+    func buttonClicked(sender:UIButton) {
+        
+        let buttonRow = sender.tag
+        print(buttonRow)
+        let taskDone = Singleton.sharedInstance.listTodo[buttonRow]
+        taskDone.isFinish = true
+        Singleton.sharedInstance.insertNewTaskOnList(taskDone)
+        Singleton.sharedInstance.removeTaskOnListToDo(buttonRow)
+        tableView.reloadData()
+        
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            let alert = UIAlertController(title: "Atenção", message: "Tem certeza que deseja deletar essa tarefa?", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Não", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Sim", style: .Default, handler: { action in
+                switch action.style{
+                case .Default:
+                    Singleton.sharedInstance.removeTaskOnListToDo(indexPath.row)
+                    self.tableView.reloadData()
+                    
+                case .Cancel:
+                    print("cancel")
+                    
+                case .Destructive:
+                    print("destructive")
+                }
+            }))
+
+        }
+    }
+    
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(Singleton.sharedInstance.getListTodoSize() == 0){
-            return 4
+            return 0
         }
         else{
             return Singleton.sharedInstance.getListTodoSize()

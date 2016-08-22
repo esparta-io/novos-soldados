@@ -11,13 +11,13 @@ import UIKit
 class NewTaskViewController: UIViewController {
 
     @IBOutlet weak var taskText: UITextField!
-    @IBOutlet weak var dataPicker: UIDatePicker!
+    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var btnAdd: UIButton!
     
     override func viewDidLoad() {
         self.view.backgroundColor = Singleton.sharedInstance.getBackGroundCollor()
         btnAdd.backgroundColor = Singleton.sharedInstance.getBackGroundCollorButton()
-        self.dataPicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        self.datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
         super.viewDidLoad()
 
     }
@@ -31,8 +31,10 @@ class NewTaskViewController: UIViewController {
         let task = taskText.text
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-        let strDate = dateFormatter.stringFromDate(dataPicker.date)
+        let strDate = dateFormatter.stringFromDate(datePicker.date)
         let newTask = TaskModel(task: task!, dateTime: strDate)
-        Singleton.sharedInstance.insertNewTaskOnList(newTask)    
+        Singleton.sharedInstance.insertNewTaskOnList(newTask)
+        taskText.text = ""
+        
     }
 }

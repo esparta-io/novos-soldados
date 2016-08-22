@@ -12,6 +12,7 @@ class ToDoTableViewCell: UITableViewCell {
 
     @IBOutlet weak var taskText: UILabel!
     @IBOutlet weak var dateTask: UILabel!
+    @IBOutlet weak var button: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,7 +21,6 @@ class ToDoTableViewCell: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
     

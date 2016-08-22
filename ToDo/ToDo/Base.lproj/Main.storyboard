@@ -34,23 +34,52 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comprar máquina de cortar grama, de até 900 reais, cor azul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuA-1G-9hd">
-                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comprar máquina de cortar grama, de até 900 reais, cor azul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuA-1G-9hd">
+                                                    <rect key="frame" x="8" y="8" width="478" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="478" id="h2R-rh-zey"/>
+                                                        <constraint firstAttribute="height" constant="21" id="qzN-na-c1G"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21-01-9999 24:12  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbZ-78-Jd1">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="21-01-9999 24:12  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbZ-78-Jd1">
                                                     <rect key="frame" x="8" y="29" width="125" height="17"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="125" id="8E7-Yb-SfV"/>
+                                                        <constraint firstAttribute="height" constant="17" id="Mrc-z0-cAK"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaQ-bx-RI1">
+                                                    <rect key="frame" x="525" y="13" width="42" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="jji-TU-SAB"/>
+                                                        <constraint firstAttribute="height" constant="30" id="tuq-7s-SSv"/>
+                                                    </constraints>
+                                                    <state key="normal" title="DONE">
+                                                        <color key="titleColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="vaQ-bx-RI1" firstAttribute="top" secondItem="ehA-6y-feK" secondAttribute="topMargin" constant="5" id="6dy-st-XA4"/>
+                                                <constraint firstItem="vaQ-bx-RI1" firstAttribute="leading" secondItem="DuA-1G-9hd" secondAttribute="trailing" constant="39" id="KY2-Q0-U6R"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="AbZ-78-Jd1" secondAttribute="leading" id="KuQ-27-2GH"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="DuA-1G-9hd" secondAttribute="leading" id="Yh6-e9-7DK"/>
+                                                <constraint firstAttribute="topMargin" secondItem="DuA-1G-9hd" secondAttribute="top" id="ZEZ-0y-DBP"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="AbZ-78-Jd1" secondAttribute="bottom" constant="0.5" id="cY6-zp-8pb"/>
+                                                <constraint firstItem="AbZ-78-Jd1" firstAttribute="top" secondItem="DuA-1G-9hd" secondAttribute="bottom" id="kNi-ba-fzX"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vaQ-bx-RI1" secondAttribute="trailing" constant="25" id="lBV-je-Z10"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
+                                            <outlet property="button" destination="vaQ-bx-RI1" id="1oL-dL-9wl"/>
                                             <outlet property="dateTask" destination="AbZ-78-Jd1" id="1rV-sL-HgQ"/>
                                             <outlet property="taskText" destination="DuA-1G-9hd" id="lAz-JS-UWD"/>
                                         </connections>
@@ -161,7 +190,7 @@
                     <tabBarItem key="tabBarItem" title="Nova Tarefa" image="new.png" id="wBV-b0-r97"/>
                     <connections>
                         <outlet property="btnAdd" destination="6Io-ys-9cR" id="0am-Ec-Ow7"/>
-                        <outlet property="dataPicker" destination="ZPr-GN-8ZQ" id="UYH-WC-Y1Q"/>
+                        <outlet property="datePicker" destination="ZPr-GN-8ZQ" id="fFs-0E-4L7"/>
                         <outlet property="taskText" destination="2tD-u5-RYi" id="p7S-M1-omf"/>
                     </connections>
                 </viewController>
