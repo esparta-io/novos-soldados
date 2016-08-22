@@ -11,6 +11,7 @@ import UIKit
 class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -22,9 +23,19 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.didReceiveMemoryWarning()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        print("oi")
+        tableView.reloadData()
+    }
+    
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:ToDoTableViewCell = tableView.dequeueReusableCellWithIdentifier("toDo", forIndexPath: indexPath) as! ToDoTableViewCell
-        
+        if(Singleton.sharedInstance.getListTodoSize() > 0){
+            let textTask = Singleton.sharedInstance.listTodo[indexPath.row].taskDescription
+            let date = Singleton.sharedInstance.listTodo[indexPath.row].dateTime
+            cell.setCell(textTask, date: date)
+        }
         return cell
     }
     

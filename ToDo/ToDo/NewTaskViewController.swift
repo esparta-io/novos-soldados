@@ -33,7 +33,6 @@ class NewTaskViewController: UIViewController {
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
         let strDate = dateFormatter.stringFromDate(dataPicker.date)
         let newTask = TaskModel(task: task!, dateTime: strDate)
-        Singleton.sharedInstance.insertNewTaskOnList(newTask)
-    
+        Singleton.sharedInstance.insertNewTaskOnList(newTask)    
     }
 }

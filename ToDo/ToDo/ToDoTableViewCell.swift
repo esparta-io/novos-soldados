@@ -10,6 +10,9 @@ import UIKit
 
 class ToDoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var taskText: UILabel!
+    @IBOutlet weak var dateTask: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,6 +22,11 @@ class ToDoTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func setCell(task: String, date: String){
+        self.taskText.text = task
+        self.dateTask.text = date
     }
 
 }

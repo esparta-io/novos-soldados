@@ -50,6 +50,10 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="dateTask" destination="AbZ-78-Jd1" id="1rV-sL-HgQ"/>
+                                            <outlet property="taskText" destination="DuA-1G-9hd" id="lAz-JS-UWD"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
