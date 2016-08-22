@@ -20,6 +20,7 @@
 		18C7B59B1D6A7994008B7188 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7B59A1D6A7994008B7188 /* TaskModel.swift */; };
 		18C7B59D1D6A7A4C008B7188 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7B59C1D6A7A4C008B7188 /* ToDoViewController.swift */; };
 		18C7B59F1D6A7B90008B7188 /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7B59E1D6A7B90008B7188 /* ToDoTableViewCell.swift */; };
+		18C7B5A11D6A8229008B7188 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7B5A01D6A8229008B7188 /* NewTaskViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		18C7B59A1D6A7994008B7188 /* TaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		18C7B59C1D6A7A4C008B7188 /* ToDoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		18C7B59E1D6A7B90008B7188 /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
+		18C7B5A01D6A8229008B7188 /* NewTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				18C7B5981D6A7975008B7188 /* Singleton.swift */,
 				18C7B59C1D6A7A4C008B7188 /* ToDoViewController.swift */,
 				18C7B59E1D6A7B90008B7188 /* ToDoTableViewCell.swift */,
+				18C7B5A01D6A8229008B7188 /* NewTaskViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				18C7B59B1D6A7994008B7188 /* TaskModel.swift in Sources */,
 				18C7B5621D6A77D8008B7188 /* AppDelegate.swift in Sources */,
 				18C7B5991D6A7975008B7188 /* Singleton.swift in Sources */,
+				18C7B5A11D6A8229008B7188 /* NewTaskViewController.swift in Sources */,
 				18C7B59F1D6A7B90008B7188 /* ToDoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -530,6 +534,7 @@
 				18C7B5881D6A77D8008B7188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18C7B5891D6A77D8008B7188 /* Build configuration list for PBXNativeTarget "ToDoTests" */ = {
 			isa = XCConfigurationList;
@@ -538,6 +543,7 @@
 				18C7B58B1D6A77D8008B7188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		18C7B58C1D6A77D8008B7188 /* Build configuration list for PBXNativeTarget "ToDoUITests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +552,7 @@
 				18C7B58E1D6A77D8008B7188 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
