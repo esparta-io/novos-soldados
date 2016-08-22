@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="background_info">#1842cc</color>
+    <color name="background_error">#ac0609</color>
+    <color name="background_success">#088704</color>
+    <color name="background_alert">#af4f01</color>
+    <color name="btn_background">#ed2724</color>
+    <color name="branco">#FFFFFF</color>
+</resources>
