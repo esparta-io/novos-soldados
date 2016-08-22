@@ -53,4 +53,8 @@ class Singleton{
         listTodo.removeAtIndex(index)
     }
     
+    func removeTaskOnListDone(index: Int){
+        listDone.removeAtIndex(index)
+    }
+    
 }
