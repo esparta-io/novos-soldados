@@ -24,7 +24,6 @@ class DoneViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     }
     
     override func viewWillAppear(animated: Bool) {
-        print("oi")
         tableView.reloadData()
     }
     
@@ -46,7 +45,6 @@ class DoneViewController: UIViewController,UITableViewDelegate, UITableViewDataS
     func buttonClicked(sender:UIButton) {
         
         let buttonRow = sender.tag
-        print(buttonRow)
         let taskDone = Singleton.sharedInstance.listDone[buttonRow]
         taskDone.isFinish = false
         Singleton.sharedInstance.insertNewTaskOnList(taskDone)
@@ -55,6 +53,43 @@ class DoneViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         self.view.makeToast("Movido para ToDo", duration: 2.0, position: .Top)
         
     }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
+        let detail = Singleton.sharedInstance.listDone[indexPath.row].taskDescription
+        let alert = UIAlertController(title: "Detalhes", message: "\(detail)", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Editar", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                print("editar")
+                if let _ = tableView.cellForRowAtIndexPath(indexPath) {
+                    self.performSegueWithIdentifier("SendDataSegue", sender: self)
+                }
+                [self.tableView .deselectRowAtIndexPath(indexPath, animated: true)]
+                
+            case .Cancel:
+                print("ok")
+                     
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SendDataSegue" {
+            if let destination = segue.destinationViewController as? NewTaskViewController {
+                let path = tableView.indexPathForSelectedRow?.item
+                destination.segue = path!
+                destination.isFinish = true             //TAREFA ESTÁ NO ESTADO DONE
+            }
+        }
+    }
+
+    
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
@@ -68,7 +103,6 @@ class DoneViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                     self.tableView.reloadData()
                     self.view.makeToast("Deletado", duration: 1.3, position: .Top)
 
-                    
                 case .Cancel:
                     print("cancel")
                     

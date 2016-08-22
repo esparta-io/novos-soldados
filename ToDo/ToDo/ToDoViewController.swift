@@ -28,7 +28,6 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     override func viewWillAppear(animated: Bool) {
-        print("oi")
         tableView.reloadData()
     }
     
@@ -50,7 +49,6 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
     func buttonClicked(sender:UIButton) {
         
         let buttonRow = sender.tag
-        print(buttonRow)
         let taskDone = Singleton.sharedInstance.listTodo[buttonRow]
         taskDone.isFinish = true
         Singleton.sharedInstance.insertNewTaskOnList(taskDone)
@@ -85,6 +83,41 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         }
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
+        let detail = Singleton.sharedInstance.listTodo[indexPath.row].taskDescription
+        let alert = UIAlertController(title: "Detalhes", message: "\(detail)", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil))
+        self.presentViewController(alert, animated: true, completion: nil)
+        alert.addAction(UIAlertAction(title: "Editar", style: .Default, handler: { action in
+            switch action.style{
+            case .Default:
+                print("editar")
+                if let _ = tableView.cellForRowAtIndexPath(indexPath) {
+                    self.performSegueWithIdentifier("SendDataSegue2", sender: self)
+                }
+                [self.tableView .deselectRowAtIndexPath(indexPath, animated: true)]
+                
+            case .Cancel:
+                print("ok")
+                
+            case .Destructive:
+                print("destructive")
+            }
+        }))
+        
+    }
+
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SendDataSegue2" {
+            if let destination = segue.destinationViewController as? NewTaskViewController {
+                let path = tableView.indexPathForSelectedRow?.item
+                destination.segue = path!
+                destination.isFinish = false             //TAREFA ESTÁ NO ESTADO TODO
+            }
+        }
+    }
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

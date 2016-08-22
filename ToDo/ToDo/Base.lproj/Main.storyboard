@@ -100,6 +100,7 @@
                     <tabBarItem key="tabBarItem" title="ToDo" image="list.png" id="Nzf-qh-wcV"/>
                     <connections>
                         <outlet property="tableView" destination="Rzn-ev-Ejv" id="xxF-q1-blX"/>
+                        <segue destination="zdC-S7-uc4" kind="showDetail" identifier="SendDataSegue2" id="7E0-rC-oIE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wy-uZ-7fP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -128,7 +129,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2tD-u5-RYi">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="De um nome para sua tarefa" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2tD-u5-RYi">
                                 <rect key="frame" x="20" y="60" width="560" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4jk-ZL-FMC"/>
@@ -148,9 +149,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZPr-GN-8ZQ">
-                                <rect key="frame" x="0.0" y="158" width="600" height="216"/>
+                                <rect key="frame" x="0.0" y="158" width="600" height="265"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="600" id="7vV-q2-4af"/>
+                                    <constraint firstAttribute="height" constant="265" id="ceB-SL-glh"/>
                                 </constraints>
                                 <date key="date" timeIntervalSinceReferenceDate="493518537.286587">
                                     <!--2016-08-22 00:28:57 +0000-->
@@ -160,7 +162,9 @@
                                 <rect key="frame" x="260" y="452" width="81" height="30"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="6Io-ys-9cR" secondAttribute="height" multiplier="27:10" id="uAb-6X-LpV"/>
+                                    <constraint firstAttribute="height" constant="30" id="IQ7-hW-1fr"/>
+                                    <constraint firstAttribute="width" secondItem="6Io-ys-9cR" secondAttribute="height" multiplier="27:10" id="ixK-D2-3b3"/>
+                                    <constraint firstAttribute="width" constant="81" id="qLH-tz-GgF"/>
                                 </constraints>
                                 <state key="normal" title="  Adicionar  ">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -183,7 +187,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="ZPr-GN-8ZQ" secondAttribute="trailing" constant="-20" id="a4j-rn-64M"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5mm-cs-nFm" secondAttribute="trailing" constant="454" id="bBc-wF-AhE"/>
                             <constraint firstItem="ZPr-GN-8ZQ" firstAttribute="top" secondItem="5mm-cs-nFm" secondAttribute="bottom" constant="8" id="dI4-pF-037"/>
-                            <constraint firstItem="6Io-ys-9cR" firstAttribute="top" secondItem="ZPr-GN-8ZQ" secondAttribute="bottom" constant="78" id="hl7-fa-UC0"/>
+                            <constraint firstItem="6Io-ys-9cR" firstAttribute="top" secondItem="ZPr-GN-8ZQ" secondAttribute="bottom" constant="29" id="hl7-fa-UC0"/>
                             <constraint firstItem="5mm-cs-nFm" firstAttribute="top" secondItem="2tD-u5-RYi" secondAttribute="bottom" constant="36" id="qvO-e0-018"/>
                             <constraint firstItem="rs2-pK-pMb" firstAttribute="top" secondItem="Fy6-Up-seR" secondAttribute="bottom" constant="8" id="u8t-p7-srG"/>
                             <constraint firstItem="Dhl-vv-scT" firstAttribute="top" secondItem="6Io-ys-9cR" secondAttribute="bottom" constant="69" id="y0U-jn-P2d"/>
@@ -204,6 +208,7 @@
         <scene sceneID="JOU-G9-O9P">
             <objects>
                 <tabBarController id="C6q-HZ-mBR" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="Bat-z8-UOE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -312,6 +317,7 @@
                     <tabBarItem key="tabBarItem" title="Done" image="check.png" id="TKM-nX-eg6"/>
                     <connections>
                         <outlet property="tableView" destination="Ks6-sw-SRY" id="AB7-AW-b5w"/>
+                        <segue destination="zdC-S7-uc4" kind="showDetail" identifier="SendDataSegue" id="nLW-ct-HXq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDA-GA-Bmt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -324,4 +330,7 @@
         <image name="list.png" width="30" height="30"/>
         <image name="new.png" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vmg-7M-Y6i"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -28,6 +28,8 @@ class Singleton{
         listTodo.append(newTask)
         newTask = TaskModel(task: "Levar bike para manutenção", dateTime: "10-10-2016 13:00")
         listTodo.append(newTask)
+        newTask = TaskModel(task: "Clique em mim para ver ler/ atualizar a tarefa.", dateTime: "12-10-2016 13:00")
+        listTodo.append(newTask)
         newTask = TaskModel(task: "Terminar App teste para Esparta", dateTime: "26-09-2016 23:00")
         newTask.isFinish = true
         listDone.append(newTask)
@@ -57,7 +59,6 @@ class Singleton{
             listDone.append(task)
         }
         else{
-            print("erro")
         }
     }
     
@@ -67,6 +68,10 @@ class Singleton{
     
     func removeTaskOnListDone(index: Int){
         listDone.removeAtIndex(index)
+    }
+    
+    func insertTaskDoneList(task: TaskModel){
+        listDone.append(task)
     }
     
 }
