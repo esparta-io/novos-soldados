@@ -23,6 +23,7 @@
 		18C7B5A11D6A8229008B7188 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7B5A01D6A8229008B7188 /* NewTaskViewController.swift */; };
 		18C7B5A31D6A9EBC008B7188 /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7B5A21D6A9EBC008B7188 /* DoneViewController.swift */; };
 		18C7B5A51D6A9EDB008B7188 /* DoneTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7B5A41D6A9EDB008B7188 /* DoneTableViewCell.swift */; };
+		18C7B5A71D6AAFC1008B7188 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7B5A61D6AAFC1008B7188 /* Toast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		18C7B5A01D6A8229008B7188 /* NewTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		18C7B5A21D6A9EBC008B7188 /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		18C7B5A41D6A9EDB008B7188 /* DoneTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneTableViewCell.swift; sourceTree = "<group>"; };
+		18C7B5A61D6AAFC1008B7188 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		18C7B5601D6A77D8008B7188 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				18C7B5A61D6AAFC1008B7188 /* Toast.swift */,
 				18C7B5971D6A78CB008B7188 /* Controller */,
 				18C7B5961D6A78C1008B7188 /* View */,
 				18C7B5951D6A78BD008B7188 /* Model */,
@@ -244,6 +247,7 @@
 				TargetAttributes = {
 					18C7B55D1D6A77D8008B7188 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 5UX5SY23TY;
 					};
 					18C7B5711D6A77D8008B7188 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -317,6 +321,7 @@
 				18C7B5621D6A77D8008B7188 /* AppDelegate.swift in Sources */,
 				18C7B5991D6A7975008B7188 /* Singleton.swift in Sources */,
 				18C7B5A11D6A8229008B7188 /* NewTaskViewController.swift in Sources */,
+				18C7B5A71D6AAFC1008B7188 /* Toast.swift in Sources */,
 				18C7B59F1D6A7B90008B7188 /* ToDoTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,10 +464,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ToDo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Murilo.ToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -470,10 +478,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = ToDo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Murilo.ToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

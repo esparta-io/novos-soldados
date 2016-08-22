@@ -25,6 +25,7 @@ class DoneTableViewCell: UITableViewCell {
     }
     
     func setCell(task: String, date: String){
+        self.button.backgroundColor = Singleton.sharedInstance.getBackGroundCollorButton()
         self.taskText.text = task
         self.dateTask.text = date
     }

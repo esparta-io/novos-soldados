@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewTaskViewController: UIViewController {
+class NewTaskViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var taskText: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -18,16 +18,23 @@ class NewTaskViewController: UIViewController {
         self.view.backgroundColor = Singleton.sharedInstance.getBackGroundCollor()
         btnAdd.backgroundColor = Singleton.sharedInstance.getBackGroundCollorButton()
         self.datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        self.taskText.delegate = self
         super.viewDidLoad()
 
     }
 
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     @IBAction func btnAdd(sender: AnyObject) {
+        self.view.makeToast("Adicionado com sucesso", duration: 2.0, position: .Top)
         let task = taskText.text
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"

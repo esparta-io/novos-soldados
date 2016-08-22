@@ -52,6 +52,7 @@ class DoneViewController: UIViewController,UITableViewDelegate, UITableViewDataS
         Singleton.sharedInstance.insertNewTaskOnList(taskDone)
         Singleton.sharedInstance.removeTaskOnListDone(buttonRow)
         tableView.reloadData()
+        self.view.makeToast("Movido para ToDo", duration: 2.0, position: .Top)
         
     }
     
@@ -65,6 +66,8 @@ class DoneViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 case .Default:
                     Singleton.sharedInstance.removeTaskOnListDone(indexPath.row)
                     self.tableView.reloadData()
+                    self.view.makeToast("Deletado", duration: 1.3, position: .Top)
+
                     
                 case .Cancel:
                     print("cancel")

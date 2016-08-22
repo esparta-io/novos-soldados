@@ -17,7 +17,8 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.backgroundColor = Singleton.sharedInstance.getBackGroundCollor()
-        
+        self.view.makeToast("Swipe para esquerda para deletar", duration: 3.0, position: .Top)
+        Singleton.sharedInstance.start()
         
         super.viewDidLoad()
     }
@@ -55,6 +56,8 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         Singleton.sharedInstance.insertNewTaskOnList(taskDone)
         Singleton.sharedInstance.removeTaskOnListToDo(buttonRow)
         tableView.reloadData()
+        self.view.makeToast("Movido para Done", duration: 2.0, position: .Top)
+
         
     }
     
@@ -68,6 +71,8 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
                 case .Default:
                     Singleton.sharedInstance.removeTaskOnListToDo(indexPath.row)
                     self.tableView.reloadData()
+                    self.view.makeToast("Deletado", duration: 1.3, position: .Top)
+
                     
                 case .Cancel:
                     print("cancel")
