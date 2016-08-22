@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Nova Tarefa-->
@@ -27,7 +28,7 @@
         <!--ToDo-->
         <scene sceneID="cGD-TV-3C9">
             <objects>
-                <viewController id="4p4-g4-Ue1" sceneMemberID="viewController">
+                <viewController id="4p4-g4-Ue1" customClass="ToDoViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uIo-M9-dBg"/>
                         <viewControllerLayoutGuide type="bottom" id="VZh-AU-0QO"/>
@@ -35,9 +36,54 @@
                     <view key="view" contentMode="scaleToFill" id="6vB-sU-PsX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="55" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rzn-ev-Ejv">
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="7nh-Vu-spV"/>
+                                    <constraint firstAttribute="height" constant="531" id="Svl-dJ-AF9"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="toDo" rowHeight="55" id="BeD-ue-hOB" customClass="ToDoTableViewCell" customModule="ToDo" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="55"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BeD-ue-hOB" id="ehA-6y-feK">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="54.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comprar máquina de cortar grama, de até 900 reais, cor azul" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DuA-1G-9hd">
+                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="21-01-9999 24:12  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AbZ-78-Jd1">
+                                                    <rect key="frame" x="8" y="29" width="125" height="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Rzn-ev-Ejv" firstAttribute="leading" secondItem="6vB-sU-PsX" secondAttribute="leadingMargin" constant="-20" id="FQ0-TN-17r"/>
+                            <constraint firstItem="Rzn-ev-Ejv" firstAttribute="top" secondItem="uIo-M9-dBg" secondAttribute="bottom" id="S17-dq-N1a"/>
+                            <constraint firstItem="VZh-AU-0QO" firstAttribute="top" secondItem="Rzn-ev-Ejv" secondAttribute="bottom" id="dK8-yn-QJZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Rzn-ev-Ejv" secondAttribute="trailing" constant="-20" id="dSU-f5-zAp"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="ToDo" image="list.png" id="Nzf-qh-wcV"/>
+                    <connections>
+                        <outlet property="tableView" destination="Rzn-ev-Ejv" id="xxF-q1-blX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Wy-uZ-7fP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
