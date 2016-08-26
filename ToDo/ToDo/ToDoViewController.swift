@@ -17,7 +17,7 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.backgroundColor = Singleton.sharedInstance.getBackGroundCollor()
-        self.view.makeToast("Swipe para esquerda para deletar", duration: 3.0, position: .Top)
+        self.view.makeToast("Swipe para esquerda para deletar", duration: 3.0, position: .Top)      //usando o lib Toast para exibir alerts em ação
         Singleton.sharedInstance.start()
         
         super.viewDidLoad()
@@ -42,24 +42,24 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.backgroundColor = Singleton.sharedInstance.getBackGroundCollorButton()
 
         cell.button.tag = indexPath.row
-        cell.button.addTarget(self, action: #selector(ToDoViewController.buttonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        cell.button.addTarget(self, action: #selector(ToDoViewController.buttonClicked(_:)), forControlEvents: UIControlEvents.TouchUpInside)       //detecta toque em um button da cell
         return cell
     }
     
     func buttonClicked(sender:UIButton) {
         
         let buttonRow = sender.tag
-        let taskDone = Singleton.sharedInstance.listTodo[buttonRow]
-        taskDone.isFinish = true
-        Singleton.sharedInstance.insertNewTaskOnList(taskDone)
-        Singleton.sharedInstance.removeTaskOnListToDo(buttonRow)
+        let taskDone = Singleton.sharedInstance.listTodo[buttonRow] //recebe a tarefa equivalente a cell selecionada
+        taskDone.isFinish = true        //marca tarefa como pronta
+        Singleton.sharedInstance.insertNewTaskOnList(taskDone)     //insere na lista de Done
+        Singleton.sharedInstance.removeTaskOnListToDo(buttonRow)   //apaga da lista ToDo
         tableView.reloadData()
-        self.view.makeToast("Movido para Done", duration: 2.0, position: .Top)
+        self.view.makeToast("Movido para Done", duration: 2.0, position: .Top)  //popup de alerta (Toast)
 
         
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {    //Swipe left para deletar
         if editingStyle == .Delete {
             let alert = UIAlertController(title: "Atenção", message: "Tem certeza que deseja deletar essa tarefa?", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Não", style: UIAlertActionStyle.Default, handler: nil))
@@ -74,6 +74,8 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
                     
                 case .Cancel:
                     print("cancel")
+                    [self.tableView .deselectRowAtIndexPath(indexPath, animated: true)]
+
                     
                 case .Destructive:
                     print("destructive")
@@ -81,6 +83,8 @@ class ToDoViewController: UIViewController, UITableViewDelegate, UITableViewData
             }))
 
         }
+
+
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

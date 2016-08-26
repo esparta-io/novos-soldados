@@ -71,7 +71,9 @@ class DoneViewController: UIViewController,UITableViewDelegate, UITableViewDataS
                 
             case .Cancel:
                 print("ok")
-                     
+                [self.tableView .deselectRowAtIndexPath(indexPath, animated: true)]
+
+                
             case .Destructive:
                 print("destructive")
             }

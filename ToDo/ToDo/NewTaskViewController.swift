@@ -25,9 +25,9 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate {
         self.taskText.delegate = self
         let currenteDate = NSDate()
         self.datePicker.minimumDate = currenteDate
-        if(segue != -1){
+        if(segue != -1){    //Caso estaja editando muda o texto do botão;
                 loadDataFromSegue()
-                self.btnAdd.setTitle("Atualizar", forState: .Normal)//Caso estaja atualizando muda o texto do botão
+                self.btnAdd.setTitle("Atualizar", forState: .Normal)
         }
         
         super.viewDidLoad()
@@ -46,7 +46,7 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
-        return false
+        return false        //retorna teclado
     }
     
     override func didReceiveMemoryWarning() {
@@ -56,7 +56,7 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func btnAdd(sender: AnyObject) {
         self.view.makeToast("Adicionado com sucesso", duration: 2.0, position: .Top)
-        if(segue == -1){
+        if(segue == -1){        //Se o valor da segue é igual a -1 significa que a view esta no modo de adicionar uma nova tarefa
             let task = taskText.text
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
@@ -66,22 +66,18 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate {
             taskText.text = ""
             taskText.placeholder = "De um nome para sua tarefa"
         } 
-        if(segue != -1){
+        if(segue != -1){        //Para valores difenrentes de -1, trata-se de uma edição, portanto preenche os campos com o texto da cell em edição
+            let task = taskText.text
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+            let strDate = dateFormatter.stringFromDate(datePicker.date)
+            let newTask = TaskModel(task: task!, dateTime: strDate)
+            
             if(self.isFinish == true){
-                let task = taskText.text
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-                let strDate = dateFormatter.stringFromDate(datePicker.date)
-                let newTask = TaskModel(task: task!, dateTime: strDate)
                 Singleton.sharedInstance.removeTaskOnListDone(segue)
                 Singleton.sharedInstance.insertTaskDoneList(newTask)
             }
             if(self.isFinish == false){
-                let task = taskText.text
-                let dateFormatter = NSDateFormatter()
-                dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-                let strDate = dateFormatter.stringFromDate(datePicker.date)
-                let newTask = TaskModel(task: task!, dateTime: strDate)
                 Singleton.sharedInstance.removeTaskOnListToDo(segue)
                 Singleton.sharedInstance.insertNewTaskOnList(newTask)
 
@@ -90,9 +86,9 @@ class NewTaskViewController: UIViewController, UITextFieldDelegate {
             taskText.text = ""
             taskText.placeholder = "De um nome para sua tarefa"
             self.view.makeToast("Atualizado com sucesso", duration: 2.0, position: .Top)
-            self.segue = -1
+            self.segue = -1         // Retorna ao status -1 para que não exita problema ao acessar a view novamente
             self.dismissViewControllerAnimated(true, completion: {});
         }
-        self.segue = -1
+        self.segue = -1 // Retorna ao status -1 para que não exita problema ao acessar a view novamente
     }
 }

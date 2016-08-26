@@ -10,7 +10,7 @@ import UIKit
 
 class Singleton{
     
-    var listTodo: [TaskModel] = []
+    var listTodo: [TaskModel] = []      //Lista salva em memória
     var listDone: [TaskModel] = []
     
     
@@ -22,13 +22,13 @@ class Singleton{
     }
     
     func start(){
-        var newTask = TaskModel(task: "Comprar bolo aniversário", dateTime: "21-09-2016 12:00")
+        var newTask = TaskModel(task: "🙌 Clique em mim para ver ler/ atualizar a tarefa.", dateTime: "12-10-2016 13:00")
+        listTodo.append(newTask)
+        newTask = TaskModel(task: "Comprar bolo aniversário", dateTime: "21-09-2016 12:00")
         listTodo.append(newTask)
         newTask = TaskModel(task: "Terminar trabalho de IA", dateTime: "23-09-2016 21:00")
         listTodo.append(newTask)
         newTask = TaskModel(task: "Levar bike para manutenção", dateTime: "10-10-2016 13:00")
-        listTodo.append(newTask)
-        newTask = TaskModel(task: "Clique em mim para ver ler/ atualizar a tarefa.", dateTime: "12-10-2016 13:00")
         listTodo.append(newTask)
         newTask = TaskModel(task: "Terminar App teste para Esparta", dateTime: "26-09-2016 23:00")
         newTask.isFinish = true
