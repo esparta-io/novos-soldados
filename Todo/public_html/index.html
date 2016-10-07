@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO</title>
+        <style>
+            #todos{
+                list-style: none;
+                padding: 10;
+                margin: 10;
+                width: 40%;
+                height: 40%;
+                border: 1px solid #333;
+                background: #eee;;
+            }
+            #dones{
+                list-style: none;
+                padding: 10;
+                margin: 10;
+                width: 40%;
+                height: 40%;
+                border: 1px solid #333;
+                background: #eee;;
+            }
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>TODO LIST</h1>    
+        Adicione sua tarefa: <input id="task"><button id="add">Add</button>
+        <hr>
+        <h2>Tarefas</h2>
+        <div id="todos"></div>
+        <h2>Tarefas Realizadas</h2>
+        <div id="dones"></div>
+        <script src="todo.js"></script>
+    </body>
+</html>
