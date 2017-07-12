@@ -1,0 +1,63 @@
+﻿@{
+    @model ThisIsSparta.Models.Tarefa
+    ViewData["Title"] = "Home Page";
+
+}
+
+<h1 style="margin:30px" class="alert-danger"> THIS IS SPARTA!!!</h1>
+<h2 style="margin : 10px">Organizador de tarefas, kanban</h2>
+<div style="margin: 15px">
+    <form action="" method="post">
+
+        <div>
+            @Html.TextBox("textadd")<input asp-action="Add" type="submit" value="Adicionar Tarefa" /><br />
+            <label> as tarefas por default iniciam em "Para Fazer"</label><br />
+
+
+        </div>
+    </form>
+</div>
+<div class="row" style="background-color:#26a420; border:15px solid #ba7302">
+    <div class="col-md-4">
+        <h2 style="color:white">Para fazer</h2>
+        <ul>
+            @{
+                foreach (var tarefa in ThisIsSparta.Models.ListTarefas.Instance)
+                {
+                    if (tarefa.StatusTarefa == 0)
+                    {
+                        <li style="color:#FFF"><form action="" method="post"> @tarefa.TextTarefa <input type="text" class="hidden" name="text" value="@tarefa.TextTarefa" /><input style="background-color:#26a420" asp-action="MoveD" type="submit" value=">>" /><input style="background-color:#26a420" asp-action="Del" type="submit" value="Delete" onclick="return confirm('Deseja excluir esse registro?')" /></form></li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+    <div style="height:auto; border-left: dashed 3px white; border-right: dashed 3px white;" class="col-md-4">
+        <h2 style="color:white">Fazendo</h2>
+        <ul>
+            @{
+                foreach (var tarefa in ThisIsSparta.Models.ListTarefas.Instance)
+                {
+                    if (tarefa.StatusTarefa == 1)
+                    {
+                        <li style="color:#FFF"><form action="" method="post"><input style="background-color:#26a420" asp-action="MoveE" type="submit" value="<<" />@tarefa.TextTarefa<input type="text" class="hidden" name="text" value="@tarefa.TextTarefa" /><input style="background-color:#26a420" asp-action="MoveD" type="submit" value=">>" /><input style="background-color:#26a420" asp-action="Del" type="submit" value="Delete" onclick="return confirm('Deseja excluir esse registro?')" /></form></li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h2 style="color:white">Feito</h2>
+        <ul>
+            @{
+                foreach (var tarefa in ThisIsSparta.Models.ListTarefas.Instance)
+                {
+                    if (tarefa.StatusTarefa == 2)
+                    {
+                        <li style="color:#FFF"><form action="" method="post"><input style="background-color:#26a420" asp-action="MoveE" type="submit" value="<<" />@tarefa.TextTarefa<input type="text" class="hidden" name="text" value="@tarefa.TextTarefa" /><input style="background-color:#26a420" asp-action="Del" type="submit" value="Delete" onclick="return confirm('Deseja excluir esse registro?')" /></form></li>
+                    }
+                }
+            }
+        </ul>
+    </div>
+</div>
