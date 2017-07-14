@@ -105,10 +105,28 @@ export default class App extends React.Component {
      * Deleta uma task
      * */
     deleteTask(taskToDelete){
-        if(confirm('Tem certeza que deseja excluir?')) {
-            _.remove(this.state.todos, todo => todo.task === taskToDelete);
-            this.setState({ todos: this.state.todos });
-        }
+        let tasks = this.state.todos;
+        let app = this;
+
+        swal({
+            title: 'Tem Certeza?',
+            text: "Essa ação não poderá ser revertida!",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#26a69a',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Deletar',
+            cancelButtonText: 'Cancelar',
+        }).then(function () {
+            _.remove(tasks, todo => todo.task === taskToDelete);
+            app.setState({ todos: tasks });
+
+            swal(
+                'Deletado!',
+                'Tarefa deletada com sucesso.',
+                'success'
+            )
+        });
     }
 
     /**
