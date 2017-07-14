@@ -2,7 +2,6 @@
 
 <h2>Instalação</h2>
 
-`git clone https://github.com/wilterson/ToDoList-ReactJS.git` <br/>
 `npm install` <br/>
 `webpack-dev-server` <br/>
 
